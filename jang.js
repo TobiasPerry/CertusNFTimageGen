@@ -4,10 +4,11 @@ import imagemin from 'imagemin';
 import imageminPngquant from 'imagemin-pngquant';
 
 // Basic Parameters
-const projectName = 'Just Another NFT Drop';
-const projectDescription = 'If you go to your grave without painting your masterpiece, it will not get painted - Gordon MacKenzie';
-const supply = 10000; // Number of NFT's to generate
-const imageURL = `https://jamesbachini.com/images/$nftID.png`; // IPFS URL - $nftID autoinjects 1-10000
+const projectName = 'Nike Lauchtronics';
+const projectDescription = 'More than just a shoe, an instrument to power up your muscles - Tomas Camilo Gay Bare, Professional Bodybuilder';
+const supply = 25; // Number of NFT's to generate
+const imageURL = `ipfs://nikeimagenes/$nftID.png`; // IPFS URL - $nftID autoinjects 1-10000
+const projectURL = 'https://nike.com'
 const imageSize = {
   width: 512,
   height: 512,
@@ -28,32 +29,31 @@ const drawImage= async (nftID) => {
     const layers = []
 
   // Backgrounds
-  const bkgs = ['Background1','Background2','Background3'];
-  const bkg = bkgs[Math.floor(Math.random()*bkgs.length)];
-  layers.push(addLayer('Backgrounds', bkg, ctx));
-  // Characters
-  const character = 'Jack';
-  if (Math.random > 0.7) character = 'Jill';
-  if (Math.random > 0.99) character = 'James';
-  layers.push(addLayer('Characters', character, ctx));
+  const bkgs = ['Bricks','Canada','Green', 'Purple','Wood'];
+  const bkg = bkgs[Math.floor((nftID-1)/5)];
+  layers.push(addLayer('Background', bkg, ctx));
+  // Flair
+  const flrs = ['Fire','Plants','Stars', 'Swirl','Water'];
+  const flr = flrs[(nftID-1)%5];
+  layers.push(addLayer('Flair', flr, ctx));
   // Eyes
-  const eyeArray = ['Green','Brown'];
-  let eyes = eyeArray[Math.floor(Math.random()*eyeArray.length)];
-  if (character === 'James') eyes = 'Blue';
-  layers.push(addLayer('Eyes', eyes, ctx));
+  const Brand = 'Nike';
+  // let eyes = eyeArray[Math.floor(Math.random()*eyeArray.length)];
+  // if (character === 'James') eyes = 'Blue';
+  layers.push(addLayer('Brand', Brand, ctx));
   // Mouth
-  const mouthArray = ['Happy','Sad'];
-  let mouth = mouthArray[Math.floor(Math.random()*mouthArray.length)];
-  if (nftID.toString().includes(420)) mouth = 'Smoking'; 
-  layers.push(addLayer('Mouths', mouth, ctx));
-  await Promise.all(layers)
+  // const mouthArray = ['Happy','Sad'];
+  // let mouth = mouthArray[Math.floor(Math.random()*mouthArray.length)];
+  // if (nftID.toString().includes(420)) mouth = 'Smoking'; 
+  // layers.push(addLayer('Mouths', mouth, ctx));
+  // await Promise.all(layers)
   // Add Some Text
   ctx.fillStyle = "#ffffff"; 
   ctx.font = "20px Nunito, sans-serif"; // Nunito is the font, change this or download it from Google Fonts
-  ctx.fillText(`${projectName} #${nftID} ${character}`, 120, 460);
+  ctx.fillText(`${projectName} #${nftID}`, 120, 460);
   // Add Numeric Attributes With No Image Layers
-  const strength = Math.floor(Math.random()*99);
-  ctx.attributes.push({ 'trait_type': 'Strength', 'value': strength });
+  const model = 'Nike Dithur Force 1';
+  ctx.attributes.push({ 'trait_type': 'Model', 'value': model });
   // Finish By Adding A Vignette Overlay, Don't Need An Attribute For This
   const img = await canvas.loadImage(`${dir.input}/vignette.png`);
   ctx.drawImage(img,0,0,imageSize.width,imageSize.height);
@@ -66,7 +66,7 @@ const drawImage= async (nftID) => {
       name: `${projectName} #${nftID}`,
       description: projectDescription,
       image: imageURL.split('$nftID').join(nftID),
-      //external_url: projectURL,
+      external_url: projectURL,
       attributes: ctx.attributes,
     }, null, 2), (err) =>  { if (err) throw err });
 

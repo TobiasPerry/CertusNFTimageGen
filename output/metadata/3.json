@@ -1,27 +1,24 @@
 {
-  "name": "Just Another NFT Drop #3",
-  "description": "If you go to your grave without painting your masterpiece, it will not get painted - Gordon MacKenzie",
-  "image": "https://jamesbachini.com/images/3.png",
+  "name": "Nike Lauchtronics #3",
+  "description": "More than just a shoe, an instrument to power up your muscles - Tomas Camilo Gay Bare, Professional Bodybuilder",
+  "image": "ipfs://QmYVET1q6KgrmSgzJq7r8zZVoiG5YqiqL2jC8bGAf641Sf/3.png",
+  "external_url": "https://nike.com",
   "attributes": [
     {
-      "trait_type": "Backgrounds",
-      "value": "Background3"
+      "trait_type": "Model",
+      "value": "Nike Dithur Force 1"
     },
     {
-      "trait_type": "Characters",
-      "value": "Jack"
+      "trait_type": "Background",
+      "value": "Bricks"
     },
     {
-      "trait_type": "Eyes",
-      "value": "Brown"
+      "trait_type": "Flair",
+      "value": "Stars"
     },
     {
-      "trait_type": "Mouths",
-      "value": "Happy"
-    },
-    {
-      "trait_type": "Strength",
-      "value": 77
+      "trait_type": "Brand",
+      "value": "Nike"
     }
   ]
 }

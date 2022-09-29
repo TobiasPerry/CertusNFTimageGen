@@ -1,0 +1,24 @@
+{
+  "name": "Nike Lauchtronics #9",
+  "description": "More than just a shoe, an instrument to power up your muscles - Tomas Camilo Gay Bare, Professional Bodybuilder",
+  "image": "ipfs://QmYVET1q6KgrmSgzJq7r8zZVoiG5YqiqL2jC8bGAf641Sf/9.png",
+  "external_url": "https://nike.com",
+  "attributes": [
+    {
+      "trait_type": "Model",
+      "value": "Nike Dithur Force 1"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Canada"
+    },
+    {
+      "trait_type": "Flair",
+      "value": "Swirl"
+    },
+    {
+      "trait_type": "Brand",
+      "value": "Nike"
+    }
+  ]
+}
